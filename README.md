@@ -23,19 +23,19 @@ git clone https://github.com/gbs0/cs-challenge.git
 
 Before running the script, make sure to install this dependencies:
 
-> • Installing bundler:
+• **Installing bundler:**
 
 `gem install bundler`
 
-> • Installing all project gems:
+ • **Installing all project gems:**
 
 `bundle install`
 
-> • To execute the test suit, run:
+• **To execute the test suit, run:**
 
 `ruby spec/customer_success_balancing_spec.rb --verbose`
 
-> • If you want to run just the script:
+• **If you want to run just the script:**
 
 `ruby lib/customer_success_balancing.rb`
 
