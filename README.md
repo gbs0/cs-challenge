@@ -16,8 +16,9 @@ The main file `customer_success_balancing.rb` is available in the `lib/` directo
 
 ### Installing
 
-Unzip the cs-challenge-master.zip file or download this trought git clone:
-git clone https://github.com/gbs0/cs-challenge.git
+Unzip the cs-challenge-master.zip file or download this using git clone:
+
+`git clone https://github.com/gbs0/cs-challenge.git`
 
 ### Executing program
 
