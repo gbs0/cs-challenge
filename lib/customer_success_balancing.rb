@@ -25,11 +25,8 @@ class CustomerSuccessBalancing
   private
 
   def balance_customer_success_by_winner
-    # [{1 => 4}, {3 => 2}]
     return @customer_success_ids.keys.first if @customer_success_ids.size == 1
-    # [4, 2]
     @customer_success_ids.values.uniq.size <= 1 ? 0 :  @customer_success_ids.keys.first
-    # 1
   end
 
   def match_customer_with_customer_success
