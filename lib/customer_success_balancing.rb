@@ -1,3 +1,4 @@
+require 'pry'
 require_relative '../modules/customer_success'
 
 class CustomerSuccessBalancing
@@ -24,8 +25,11 @@ class CustomerSuccessBalancing
   private
 
   def balance_customer_success_by_winner
+    # [{1 => 4}, {3 => 2}]
     return @customer_success_ids.keys.first if @customer_success_ids.size == 1
+    # [4, 2]
     @customer_success_ids.values.uniq.size <= 1 ? 0 :  @customer_success_ids.keys.first
+    # 1
   end
 
   def match_customer_with_customer_success
@@ -57,9 +61,9 @@ class CustomerSuccessBalancing
   end
 
   def validates!
-    raise ArgumentError.new(message: "Invalid format for Customer Success #{@customer_success.first}") unless CustomerSuccess.valid_customer_success?(@customer_success)
-    raise ArgumentError.new(message: "Invalid format for Customer #{@customers.first}") unless CustomerSuccess.valid_customers?(@customers)
-    raise ArgumentError.new(message: "Customer Success ID must be between 0 and 1.000") unless CustomerSuccess.valid_customer_success_id?(@customer_success)
-    raise ArgumentError.new(message: "Customer Success Score must be between 0 and 10.000") unless CustomerSuccess.valid_customer_success_score?(@customer_success)
+    raise ArgumentError.new(message: "Invalid format for Customer Success #{@customer_success.first}") unless CustomerSuccess::Validations.of_customer_success?(@customer_success)
+    raise ArgumentError.new(message: "Invalid format for Customer #{@customers.first}") unless CustomerSuccess::Validations.of_customers?(@customers)
+    raise ArgumentError.new(message: "Customer Success ID must be between 0 and 1.000") unless CustomerSuccess::Validations.of_customer_success_id?(@customer_success)
+    raise ArgumentError.new(message: "Customer Success Score must be between 0 and 10.000") unless CustomerSuccess::Validations.of_customer_success_score?(@customer_success)
   end
 end
